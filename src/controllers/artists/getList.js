@@ -32,8 +32,8 @@ const getList = ({
 			options.offset = parseInt(offset);
 		}
 
-		const artists = await Artist.paginate(query, options):
-			return sendList(res, artists);
+		const artists = await Artist.paginate(query, options);
+		return sendList(res, artists);
 	} catch (err) {
 		next(err);
 	}
