@@ -1,6 +1,6 @@
 const {
 	sendOne
-} = require('../../middleware/index');
+} = require('../../middleware');
 
 const get = ({
 	Artist

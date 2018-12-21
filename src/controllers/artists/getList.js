@@ -1,6 +1,6 @@
 const {
 	sendList
-} = require('../../middleware/index');
+} = require('../../middleware');
 
 const getList = ({
 	Artist

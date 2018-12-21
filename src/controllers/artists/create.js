@@ -1,7 +1,6 @@
-const _ = require('lodash');
 const {
 	sendCreated
-} = require('../../middleware/index');
+} = require('../../middleware');
 const mongoose = require('mongoose');
 
 const create = ({
@@ -9,7 +8,6 @@ const create = ({
 }) => async (req, res, next) => {
 	try {
 		let artistData = req.body;
-		// artistData.artistId = mongoose.Types.ObjectId(artistData.artistId);
 		const newArtist = new Artist(artistData);
 
 		const artist = await newArtist.save();

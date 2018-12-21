@@ -1,6 +1,6 @@
 const express = require("express");
 const routerConfig = require('../router-config');
-const api = require('./ api/index');
+const api = require('./ api');
 const bodyParser = require("body-parser");
 let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
@@ -9,7 +9,7 @@ const {
 	Artist
 } = require("./models/artist");
 
-const config = require("../config.js");
+const config = require("../config");
 
 let app = express();
 

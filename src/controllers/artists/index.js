@@ -4,6 +4,8 @@ const {
 const getList = require('./getList');
 const get = require('./get.js');
 const create = require('./create');
+const update = require('./update');
+const remove = require('./remove');
 
 module.exports = (models) => {
 	const api = router();
@@ -11,6 +13,8 @@ module.exports = (models) => {
 	api.get('/', getList(models));
 	api.get('/:id', get(models));
 	api.post('/', create(models));
+	api.put('/:id', update(models));
+	api.delete('/:id', remove(models))
 
 	return api;
 }
