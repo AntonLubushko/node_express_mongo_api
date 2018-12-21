@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "ae7b7feb-d6df-4379-942d-7c9cc45128ee",
+		"name": "myapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "artists",
+			"item": [
+				{
+					"name": "artist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3012/artists/5c1c185e427ce60ff812222c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3012",
+							"path": [
+								"artists",
+								"5c1c185e427ce60ff812222c"
+							]
+						},
+						"description": "get one artist"
+					},
+					"response": []
+				},
+				{
+					"name": "artists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3012/artists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3012",
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "artist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Elizaveta\",\n\t\"surname\":\"Vinkler\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3012/artists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3012",
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "artist",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"some name\",\n\t\"surname\":\"some surname\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3012/artists/5c1c17f8427ce60ff812222b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3012",
+							"path": [
+								"artists",
+								"5c1c17f8427ce60ff812222b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
