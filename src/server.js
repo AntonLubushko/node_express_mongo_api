@@ -1,40 +1,17 @@
-const express = require("express");
-const routerConfig = require('../router-config');
-const api = require('./ api');
-const bodyParser = require("body-parser");
-let mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
+const config = require('../config');
+const {
+	mongoManager
+} = require('./mongo');
 
 const {
-	Artist
-} = require("./models/artist");
+	server
+} = require('./server/index');
 
-const config = require("../config");
 
-let app = express();
-
-mongoose.set("debug", !config.IS_PRODUCTION);
-
-app.use(bodyParser.json({
-	limit: routerConfig.bodyLimit
-}));
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
-
-// api routes
-app.use('/', api(routerConfig));
-
-(async function() {
+(async () => {
 	try {
-		let client = await mongoose.connect(config.MONGO_URL, {
-			useNewUrlParser: true
-		});
-		// console.log('Promise ', client);
-		// db = client;
-		app.listen(config.PORT, () => {
-			console.log(`API app started at port ${config.PORT}`);
-		});
+		await mongoManager.connect();
+		server.start();
 	} catch (err) {
 		return console.log(err)
 	}
