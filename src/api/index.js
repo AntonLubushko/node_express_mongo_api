@@ -1,32 +1,40 @@
 const express = require('express');
 const {
-	notFound
+  notFound
 } = require('../middleware/index');
 const {
-	Artist
+  Artist
 } = require('../models/artist');
+const {
+  Album
+} = require('../models/album');
 const artists = require('../controllers/artists');
+const albums = require('../controllers/albums');
 
 const models = {
-	Artist
+  Artist,
+  Album
 };
 
 const routersInit = (config) => {
-	const router = express();
+  const router = express();
 
-	/**
-	 * API
-	 */
-	router.use('/artists', artists(models, {
-		config
-	}));
+  /**
+   * API
+   */
+  router.use('/artists', artists(models, {
+    config
+  }));
+  router.use('/albums', albums(models, {
+    config
+  }));
 
-	/**
-	 * Show 404 answer
-	 */
-	router.use('*', notFound);
+  /**
+   * Show 404 answer
+   */
+  router.use('*', notFound);
 
-	return router;
+  return router;
 };
 
 module.exports = routersInit;

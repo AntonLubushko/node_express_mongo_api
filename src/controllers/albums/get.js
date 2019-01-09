@@ -6,23 +6,24 @@ const {
 } = require('rest-api-errors');
 
 const get = ({
-  Artist
+  Album
 }) => async (req, res, next) => {
   try {
     const {
       id
     } = req.params;
 
-    const artist = await Artist.findOne({
+    const album = await Album.findOne({
       _id: id
     });
 
-    if (!artist) {
-      throw new NotFound(404, 'Artist not found');
+    if (!album) {
+      throw new NotFound(404, 'Album not found');
     }
 
-    return sendOne(res, artist);
+    return sendOne(res, album);
   } catch (err) {
+    console.log("error is  ", err)
     next(err);
   }
 };

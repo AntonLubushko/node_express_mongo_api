@@ -3,14 +3,14 @@ const {
 } = require('../../middleware');
 
 const getList = ({
-  Artist
+  Album
 }) => async (req, res, next) => {
   try {
 
     const {
       limit,
       offset,
-      artistId
+      albumId
     } = req.query;
 
     let query = {};
@@ -20,8 +20,8 @@ const getList = ({
       }
     };
 
-    if (artistId) {
-      query.artistId = artistId;
+    if (albumId) {
+      query.albumId = albumId;
     }
 
     if (limit) {
@@ -32,8 +32,8 @@ const getList = ({
       options.offset = parseInt(offset);
     }
 
-    const artists = await Artist.paginate(query, options);
-    return sendList(res, artists);
+    const albums = await Album.paginate(query, options);
+    return sendList(res, albums);
   } catch (err) {
     next(err);
   }

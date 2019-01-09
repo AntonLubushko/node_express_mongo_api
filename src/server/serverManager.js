@@ -7,27 +7,25 @@ const config = require('../../config');
 let app = express();
 
 app.use(bodyParser.json({
-	limit: routerConfig.bodyLimit
+  limit: routerConfig.bodyLimit
 }));
 app.use(bodyParser.urlencoded({
-	extended: true
+  extended: true
 }));
 
 // api routes
 app.use('/', api(routerConfig));
 
 class AppServer {
-	constructor() {}
-
-	start() {
-		app.listen(config.PORT, () => {
-			console.log(`API app started at port ${config.PORT}`);
-		});
-	}
+  start() {
+    app.listen(config.PORT, () => {
+      console.log(`API app started at port ${config.PORT}`);
+    });
+  }
 }
 
 let server = new AppServer();
 
 module.exports = {
-	server
+  server
 };
